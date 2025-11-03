@@ -133,7 +133,7 @@ Based on feature importance analysis across models:
 
 ## Performance Notes
 
-- **Training time**: ~2-5 minutes for all models
+- **Training time**: ~20sec for all models
 - **Memory usage**: Optimized for datasets up to 100K customers
 - **Scalability**: Modular design for larger datasets
 
