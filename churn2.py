@@ -21,7 +21,7 @@ import shap
 # pipenv install xyz - to ensure via pipfile
 
 # load all 4 sheets from Excel file + ensure customerID is string
-path = 'data/cust.xlsx'
+path = 'cust.xlsx'
 sheets = pd.read_excel(path, sheet_name=None, dtype={'CustomerID': str})
 
 demo   = sheets["Customer_Demographics"].copy()
