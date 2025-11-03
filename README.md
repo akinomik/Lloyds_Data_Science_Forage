@@ -1,8 +1,8 @@
 # Customer Churn Prediction Analysis
 
-A comprehensive machine learning project for predicting customer churn using multi-source customer data with advanced feature engineering and model comparison.
+A comprehensive ML project for predicting customer churn using multi-source customer data with advanced feature engineering & model comparison, plus feature importance analysis and SHAP.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project analyzes customer churn patterns using a multi-dimensional dataset that includes:
 - Customer demographics
@@ -13,7 +13,7 @@ This project analyzes customer churn patterns using a multi-dimensional dataset 
 
 The analysis implements multiple machine learning algorithms and provides detailed feature importance analysis to identify key churn indicators.
 
-## 📊 Dataset Structure
+## Dataset Structure
 
 The project works with an Excel file (`data/cust.xlsx`) containing 5 sheets:
 
@@ -50,7 +50,7 @@ The project works with an Excel file (`data/cust.xlsx`) containing 5 sheets:
 | **CatBoost** | Gradient boosting | ROC-AUC, PR-AUC | Robust to overfitting, automatic categoricals |
 | **Logistic Regression** | Linear baseline | ROC-AUC | Interpretable coefficients |
 
-### Feature Engineering Highlights
+### Feature Engineering Highlights - order is depending on a model
 - **Recency Analysis**: Days since last activity across all channels
 - **Frequency Metrics**: Transaction/service interaction counts
 - **Monetary Patterns**: Spending statistics with outlier handling
@@ -58,15 +58,15 @@ The project works with an Excel file (`data/cust.xlsx`) containing 5 sheets:
 - **Behavioral Flags**: Complaint patterns, unresolved issues
 - **Derived Ratios**: Average spend per transaction, activity gaps
 
-## 📈 Key Results & Insights
+## Key Results & Insights
 
 ### Model Performance
 ```
 Cross-validation results (ROC-AUC):
-- Random Forest: [Your CV score] ± [std]
-- LightGBM: [Your test score]
-- CatBoost: [Your test score]
-- Logistic Regression: [Your baseline score]
+- Random Forest: [0.562] ± [0.045]
+- LightGBM: [0.557]
+- CatBoost: [0.540]
+- Logistic Regression: [0.495]
 ```
 
 ### Top Predictive Features
@@ -77,27 +77,9 @@ Based on feature importance analysis across models:
 4. **Spending behavior** (transaction frequency, amounts)
 5. **Channel preferences** (Mobile App vs Website vs Online Banking)
 
-## 🚀 Getting Started
-
-### Prerequisites
-```bash
-pip install pandas numpy scikit-learn lightgbm catboost matplotlib seaborn shap
-```
-
-### Installation
-```bash
-git clone [your-repo-url]
-cd customer-churn-prediction
-```
-
-### Usage
-```bash
-python churn2.py
-```
-
 **Expected Input**: `data/cust.xlsx` with the 5 required sheets
 
-## 📁 Project Structure
+## Project Structure
 ```
 ├── churn2.py              # Main analysis script
 ├── data/
@@ -106,7 +88,7 @@ python churn2.py
 └── requirements.txt      # Dependencies (optional)
 ```
 
-## 🔍 Analysis Workflow
+## Analysis Workflow
 
 1. **Data Loading & Validation**
    - Load 5 Excel sheets
@@ -136,16 +118,7 @@ python churn2.py
    - SHAP values for model interpretation
    - Feature ranking comparison across models
 
-## 📊 Visualizations
-
-The analysis generates several visualization types:
-- **Distribution plots**: Transaction amounts, time gaps
-- **Time series**: Weekly transaction/service patterns
-- **Box plots**: Feature distributions by churn status
-- **Feature importance**: Bar charts for top predictors
-- **SHAP plots**: Model interpretation visualizations
-
-## 🎯 Business Applications
+## Business Applications
 
 ### Churn Prevention Strategy
 - **High-risk identification**: Score customers using trained models
@@ -158,21 +131,13 @@ The analysis generates several visualization types:
 - **Feature-driven insights**: Focus on controllable factors
 - **Temporal patterns**: Understand churn timing patterns
 
-## ⚡ Performance Notes
+## Performance Notes
 
 - **Training time**: ~2-5 minutes for all models
 - **Memory usage**: Optimized for datasets up to 100K customers
 - **Scalability**: Modular design for larger datasets
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-analysis`)
-3. Commit changes (`git commit -am 'Add new analysis'`)
-4. Push to branch (`git push origin feature/new-analysis`)
-5. Create Pull Request
-
-## 📋 Future Enhancements
+## Possible Future Enhancements
 
 - [ ] **Model deployment**: REST API for real-time scoring
 - [ ] **Feature store**: Automated feature pipeline
@@ -180,16 +145,6 @@ The analysis generates several visualization types:
 - [ ] **Advanced time series**: Sequential pattern analysis
 - [ ] **Ensemble methods**: Model stacking/blending
 - [ ] **Hyperparameter tuning**: Automated optimization
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Contact
-
-**Author**: [Your Name]  
-**Email**: [your.email@domain.com]  
-**LinkedIn**: [your-linkedin-profile]
 
 ---
 
