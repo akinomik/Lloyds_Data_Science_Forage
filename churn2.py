@@ -410,7 +410,7 @@ print("ROC-AUC for LogReg:", f"{roc_auc_score(y_test, p):.3f}")
 print(classification_report(y_test, (p>=0.5).astype(int)))
 
 # ===============================================
-# FEATURE ENGINEERING IMPROVEMENTS
+# Some FEATURE ENGINEERING IMPROVEMENTS
 # ROC-AUC so far is average ~0.495
 # ===============================================
 # adding a 30/60/90-day activity features & flags
@@ -459,10 +459,10 @@ y = final["ChurnStatus"].astype(int)
 drop_cols = ["CustomerID","ChurnStatus","first_txn_dt","last_txn_dt","last_cs_dt","LastLoginDate"]
 X = final.drop(columns=[c for c in drop_cols if c in final.columns])
 
-# ===============================================
+# ----------------------------------------------------------------
 # df_model is the final feature set for modelling - but ensure it has OHE done for RF, otherwise categoricals remain
-# df_model is for RF; final is for CatBoost & LightGBM
-# ===============================================
+# 'df_model' is for RF; 'final' is for CatBoost & LightGBM
+# ----------------------------------------------------------------
 df_model = final.drop(columns=[c for c in drop_cols if c in final.columns]).copy()
 
 # One-hot encode ALL non-numeric columns (incl. Gender/MaritalStatus/IncomeLevel/ServiceUsage)
@@ -629,7 +629,7 @@ print("Best threshold for CatBoost:", best_thr)
 print(classification_report(y_test, y_hat, digits=3))
 
 # ============================
-# Feature importances
+# E) Feature importances
 # ============================
 
 # --------- LightGBM feature importance
